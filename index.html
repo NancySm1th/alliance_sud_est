@@ -309,80 +309,69 @@
 <!-- ===== CONTACT ===== -->
 <section class="contact-section" id="contact">
     <div class="container">
-        <h2 class="section-title" style="color:var(--primary-color); text-align: center;">CONTACTEZ-NOUS</h2>
-        <p class="section-subtitle" style="text-align: center; margin-bottom: 25px;">Une question ? Un projet d'acquisition ? Écrivez-nous.</p>
+        
+       <div class="contact-info-bar">
+  <div class="info-item">
+    <i class="fas fa-map-marker-alt"></i>
+    <span><strong>Emplacement :</strong> ABOISSO ANADER, station Petrolub</span>
+  </div>
+  <div class="info-item">
+    <i class="fas fa-envelope"></i>
+    <span><strong>Email :</strong> alliancesudest225@gmail.com</span>
+  </div>
+  <div class="info-item">
+    <i class="fas fa-phone-alt"></i>
+    <span><strong>Téléphone :</strong> +225 07 57 90 25 52</span>
+  </div>
+</div>
+        
 
-        <!-- 1. BLOC COORDONNÉES EN UNE SEULE LIGNE HORIZONTALE -->
-        <div style="display: flex; justify-content: space-between; align-items: stretch; gap: 10px; margin-bottom: 25px; text-align: center;">
-            <div style="flex: 1; background: #f8f9fa; padding: 12px 8px; border-radius: 8px; border: 1px solid #eee;">
-                <i class="bi bi-geo-alt" style="font-size: 1.2rem; color: var(--primary-color);"></i>
-                <p style="font-weight: bold; margin: 4px 0 2px; font-size: 0.85rem;">Emplacement</p>
-                <p style="margin: 0; font-size: 0.75rem; color: #555;">ABOISSO ANADER, station Petrolub</p>
-            </div>
 
-            <div style="flex: 1; background: #f8f9fa; padding: 12px 8px; border-radius: 8px; border: 1px solid #eee;">
-                <i class="bi bi-envelope" style="font-size: 1.2rem; color: var(--primary-color);"></i>
-                <p style="font-weight: bold; margin: 4px 0 2px; font-size: 0.85rem;">Email</p>
-                <p style="margin: 0; font-size: 0.75rem; color: #555;">alliancesudest225@gmail.com</p>
-            </div>
 
-            <div style="flex: 1; background: #f8f9fa; padding: 12px 8px; border-radius: 8px; border: 1px solid #eee;">
-                <i class="bi bi-phone" style="font-size: 1.2rem; color: var(--primary-color);"></i>
-                <p style="font-weight: bold; margin: 4px 0 2px; font-size: 0.85rem;">Appelez-nous</p>
-                <p style="margin: 0; font-size: 0.75rem; color: #555;">+225 07 57 90 25 52</p>
-            </div>
-        </div>
 
+
+
+       
         <!-- 2. FORMULAIRE ET CARTE CÔTÉ À CÔTÉ (HAUTEUR ÉGALE) -->
-        <div style="display: flex !important; flex-wrap: nowrap !important; gap: 15px; align-items: stretch;">
+        
 
-            <!-- Formulaire à gauche (50% de largeur) -->
-            <div style="flex: 1; width: 50%; display: flex; flex-direction: column;">
-                <form id="contact-form" style="display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
 
-                    <div class="form-group" style="margin-bottom: 10px;">
-                        <input type="text" name="name" placeholder="Nom complet *" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    </div>
 
-                    <div class="form-group" style="margin-bottom: 10px;">
-                        <input type="email" name="email" placeholder="Adresse Email *" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    </div>
+        <div class="contact-grid-container">
+  <!-- Le Formulaire -->
+  <div class="form-wrapper">
+    <form>
+      <!-- Tes champs de formulaire (Nom, Email, Téléphone, Message...) -->
+      <div class="form-group">
+        <input type="text" placeholder="Nom complet *" required />
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Adresse Email *" required />
+      </div>
+      <div class="form-group">
+        <input type="tel" placeholder="Numéro de téléphone *" required />
+      </div>
+      <div class="form-group">
+        <textarea placeholder="Votre message ou détails de votre projet foncier..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Envoyer le message</button>
+    </form>
+  </div>
 
-                    <div class="form-group" style="margin-bottom: 10px;">
-                        <input type="tel" name="telephone" placeholder="Numéro de téléphone *" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    </div>
-
-                    <div class="form-group" style="flex-grow: 1; margin-bottom: 10px;">
-                        <textarea name="message" placeholder="Votre message ou détails de votre projet foncier..." required style="width: 100%; height: 100%; min-height: 120px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; resize: none;"></textarea>
-                    </div>
-
-                    <button type="submit" style="width: 100%; padding: 12px; background-color: var(--primary-color, #1e3a8a); color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Envoyer le message</button>
-
-                </form>
-            </div>
-
-            <!-- Carte Google Maps à droite (50% de largeur) -->
-            <div style="flex: 1; width: 50%; display: flex;">
-                <div style="position: relative; width: 100%; height: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #ccc;">
-                    <div class="map-controls" style="position: absolute; top: 10px; right: 10px; z-index: 5;">
+  <!-- La Carte Google Maps en dessous -->
+  <div class="map-wrapper">
+    <iframe src="https://maps.google.com/maps?q=5.464910,-3.218612&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+     <div class="map-controls" style="position: absolute; top: 10px; right: 10px; z-index: 5;">
                         <button type="button" id="map-zoom-in" aria-label="Zoomer">+</button>
                         <button type="button" id="map-zoom-out" aria-label="Dézoomer">−</button>
                     </div>
+  </div>
+</div>
 
-                    <iframe
-                        id="google-map"
-                        src="https://maps.google.com/maps?q=5.464910,-3.218612&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                        style="width: 100%; height: 100%; min-height: 380px; border: 0;"
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-
+           
         </div>
     </div>
 </section>
-
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
@@ -479,7 +468,8 @@ document.getElementById('humberger').addEventListener('click', function() {
             updateMapZoom();
         }
     });
-})();
+})
+();
 </script>
 
 <!-- ===== EMAILJS ===== -->
@@ -493,40 +483,16 @@ document.getElementById('humberger').addEventListener('click', function() {
 // Gestion de l'envoi du formulaire
 document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
-
-    const formulaire = this;
-    const donnees = new FormData(formulaire);
-
-    // 1. Enregistrer le message dans MySQL
-    fetch("admin/enregistrer_message.php", {
-        method: "POST",
-        body: donnees
-    })
-    .then(function(reponse) {
-        return reponse.text();
-    })
-    .then(function(resultat) {
-
-        if (resultat.trim() !== "success") {
-            throw new Error(resultat);
-        }
-
-        // 2. Envoyer également le message par EmailJS
-        return emailjs.sendForm(
-            "service_yupcock",
-            "template_30nwooi",
-            formulaire
-        );
-
-    })
-    .then(function() {
-        alert("Message envoyé avec succès !");
-        formulaire.reset();
-    })
-    .catch(function(error) {
-        console.log(error);
-        alert("Une erreur est survenue : " + error.message);
-    });
+    
+    emailjs.sendForm("service_yupcock", "template_30nwooi", this)
+        .then(function() {
+            alert("Message envoyé avec succès !");
+            document.getElementById("contact-form").reset();
+        })
+        .catch(function(error) {
+            alert("Erreur : " + error.text);
+            console.log(error);
+        });
 });
 </script>
 
