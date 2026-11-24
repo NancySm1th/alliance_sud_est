@@ -97,8 +97,6 @@ $resultat = $connexion->query($requete);
 
 <title>Messages - ALLIANCE SUD-EST</title>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
 <style>
 
 * {
@@ -293,29 +291,17 @@ body {
     transform: translateY(-1px);
 }
 
-
-/* Répondre */
-
 .btn-repondre {
     background: #2D9CD8;
 }
-
-
-/* Lire */
 
 .btn-lire {
     background: #0A3663;
 }
 
-
-/* Supprimer */
-
 .btn-supprimer {
     background: #c0392b;
 }
-
-
-/* Retour */
 
 .btn-retour {
     background: #555;
@@ -485,9 +471,7 @@ body {
 
 </head>
 
-
 <body>
-
 
 <header class="header">
 
@@ -504,7 +488,6 @@ body {
 
 <main class="container">
 
-
     <div class="title">
 
         <h1>Messages reçus</h1>
@@ -518,14 +501,11 @@ body {
 
     <?php if ($resultat && $resultat->num_rows > 0): ?>
 
-
         <?php while ($message = $resultat->fetch_assoc()): ?>
-
 
             <div class="message-card 
                 <?php echo ($message["STATUT"] === "Non lu") ? "non-lu" : ""; ?>
                 <?php echo ($message["STATUT"] === "Répondu") ? "repondu" : ""; ?>">
-
 
                 <div class="message-header">
 
@@ -540,7 +520,6 @@ body {
                         </p>
 
                     </div>
-
 
                     <?php if ($message["STATUT"] === "Non lu"): ?>
 
@@ -567,7 +546,6 @@ body {
 
                 <div class="informations">
 
-
                     <div class="info">
 
                         <strong>Email</strong>
@@ -577,7 +555,6 @@ body {
                         </span>
 
                     </div>
-
 
                     <div class="info">
 
@@ -589,7 +566,6 @@ body {
 
                     </div>
 
-
                     <div class="info">
 
                         <strong>Sujet</strong>
@@ -599,7 +575,6 @@ body {
                         </span>
 
                     </div>
-
 
                 </div>
 
@@ -615,9 +590,6 @@ body {
 
                 <div class="actions">
 
-
-                    <!-- RÉPONDRE -->
-
                     <button
                         type="button"
                         class="btn btn-repondre"
@@ -631,9 +603,6 @@ body {
                         ✉️ Répondre
                     </button>
 
-
-                    <!-- MARQUER COMME LU -->
-
                     <?php if ($message["STATUT"] === "Non lu"): ?>
 
                         <a
@@ -645,9 +614,6 @@ body {
 
                     <?php endif; ?>
 
-
-                    <!-- SUPPRIMER -->
-
                     <a
                         href="messages.php?supprimer=<?php echo $message["IDENTIFIANT"]; ?>"
                         class="btn btn-supprimer"
@@ -656,18 +622,13 @@ body {
                         🗑 Supprimer
                     </a>
 
-
                 </div>
-
 
             </div>
 
-
         <?php endwhile; ?>
 
-
     <?php else: ?>
-
 
         <div class="empty">
 
@@ -682,13 +643,11 @@ body {
 
     <?php endif; ?>
 
-
     <br>
 
     <a href="dashboard.php" class="btn btn-retour">
         ← Retour au dashboard
     </a>
-
 
 </main>
 
@@ -701,7 +660,6 @@ body {
 
     <div class="modal-content">
 
-
         <div class="modal-header">
 
             <h2>Répondre au visiteur</h2>
@@ -712,9 +670,7 @@ body {
 
         </div>
 
-
         <form id="reply-form">
-
 
             <div class="reply-group">
 
@@ -729,7 +685,6 @@ body {
 
             </div>
 
-
             <div class="reply-group">
 
                 <label>Nom du destinataire</label>
@@ -742,7 +697,6 @@ body {
                 >
 
             </div>
-
 
             <div class="reply-group">
 
@@ -757,7 +711,6 @@ body {
 
             </div>
 
-
             <div class="reply-group">
 
                 <label>Votre réponse</label>
@@ -771,7 +724,6 @@ body {
 
             </div>
 
-
             <button
                 type="submit"
                 class="btn btn-envoyer"
@@ -780,9 +732,7 @@ body {
                 ✉️ Envoyer la réponse
             </button>
 
-
             <div id="reply-result"></div>
-
 
         </form>
 
@@ -793,180 +743,61 @@ body {
 
 <script>
 
-/* ===============================
-   INITIALISATION EMAILJS
-================================ */
-
-(function() {
-
-    emailjs.init("97HiaqvNMCTI4f2E6");
-
-})();
-
-
-/* ===============================
-   VARIABLE ID DU MESSAGE
-================================ */
-
 var messageId = null;
 
-
-/* ===============================
-   OUVRIR LA FENÊTRE
-================================ */
-
 function ouvrirReponse(email, nom, sujet, id) {
-
     messageId = id;
-
     document.getElementById("reply-email").value = email;
-
     document.getElementById("reply-name").value = nom;
-
-    document.getElementById("reply-subject").value =
-        "Re: " + sujet;
-
+    document.getElementById("reply-subject").value = "Re: " + sujet;
     document.getElementById("reply-message").value = "";
-
     document.getElementById("reply-result").style.display = "none";
-
     document.getElementById("replyModal").style.display = "block";
-
 }
-
-
-/* ===============================
-   FERMER LA FENÊTRE
-================================ */
 
 function fermerReponse() {
-
     document.getElementById("replyModal").style.display = "none";
-
 }
 
-
-/* ===============================
-   FERMER EN CLIQUANT À L'EXTÉRIEUR
-================================ */
-
 window.onclick = function(event) {
-
     var modal = document.getElementById("replyModal");
-
     if (event.target === modal) {
-
         fermerReponse();
-
     }
-
 };
 
+document.getElementById("reply-form").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-/* ===============================
-   ENVOYER LA RÉPONSE
-================================ */
+    var bouton = document.getElementById("send-reply");
+    var resultat = document.getElementById("reply-result");
+    var message = document.getElementById("reply-message").value.trim();
 
-document.getElementById("reply-form").addEventListener(
-    "submit",
-    function(e) {
-
-        e.preventDefault();
-
-        var bouton = document.getElementById("send-reply");
-
-        var resultat = document.getElementById("reply-result");
-
-        bouton.disabled = true;
-
-        bouton.innerHTML = "⏳ Envoi en cours...";
-
-
-        var email =
-            document.getElementById("reply-email").value;
-
-        var nom =
-            document.getElementById("reply-name").value;
-
-        var sujet =
-            document.getElementById("reply-subject").value;
-
-        var message =
-            document.getElementById("reply-message").value;
-
-
-        var templateParams = {
-
-            to_email: email,
-
-            to_name: nom,
-
-            subject: sujet,
-
-            message: message,
-
-            from_name: "ALLIANCE SUD-EST"
-
-        };
-
-
-        /* ===============================
-           ENVOI EMAILJS
-        ================================ */
-
-        emailjs.send(
-            "service_yupcock",
-            "template_gw91ctn",
-            templateParams
-        )
-
-        .then(function() {
-
-            resultat.className = "success";
-
-            resultat.innerHTML =
-                "✓ Votre réponse a été envoyée avec succès.";
-
-            resultat.style.display = "block";
-
-
-            /* ===============================
-               ENREGISTRER LE STATUT RÉPONDU
-            ================================ */
-
-            if (messageId !== null) {
-
-                window.location.href =
-                    "messages.php?repondu=" + messageId;
-
-            }
-
-        })
-
-        .catch(function(error) {
-
-            resultat.className = "error";
-
-            resultat.innerHTML =
-                "✕ Erreur lors de l'envoi de la réponse.";
-
-            resultat.style.display = "block";
-
-            console.log(error);
-
-            bouton.disabled = false;
-
-            bouton.innerHTML =
-                "✉️ Envoyer la réponse";
-
-        });
-
+    if (!message) {
+        resultat.className = "error";
+        resultat.innerHTML = "✕ Veuillez saisir une réponse.";
+        resultat.style.display = "block";
+        return;
     }
 
-);
+    bouton.disabled = true;
+    bouton.innerHTML = "⏳ Envoi en cours...";
+
+    if (messageId !== null) {
+        resultat.className = "success";
+        resultat.innerHTML = "✓ Réponse enregistrée, mise à jour du statut...";
+        resultat.style.display = "block";
+        window.location.href = "messages.php?repondu=" + encodeURIComponent(messageId);
+    } else {
+        resultat.className = "error";
+        resultat.innerHTML = "✕ Identifiant du message introuvable.";
+        resultat.style.display = "block";
+        bouton.disabled = false;
+        bouton.innerHTML = "✉️ Envoyer la réponse";
+    }
+});
 
 </script>
-
 
 </body>
 
