@@ -519,29 +519,12 @@ document.getElementById('humberger').addEventListener('click', function() {
 })();
 </script>
 
-<!-- ===== EMAILJS ===== -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-// Initialisation EmailJS
-(function(){
-    emailjs.init("97HiaqvNMCTI4f2E6");
-})();
-
-// Gestion de l'envoi du formulaire
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    emailjs.sendForm("service_yupcock", "template_30nwooi", this)
-        .then(function() {
-            alert("Message envoyé avec succès !");
-            document.getElementById("contact-form").reset();
-        })
-        .catch(function(error) {
-            alert("Erreur : " + error.text);
-            console.log(error);
-        });
-});
-</script>
-
 </body>
 </html>
+
+
+
+
+
+
+
